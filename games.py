@@ -12,7 +12,7 @@ from common import *
 import vars
 
 import SimpleDownloader as downloader
-# downloader = downloader.SimpleDownloader()
+
 def getGameUrl(video_id, video_type, video_ishomefeed):
     log("cookies: %s %s" % (video_type, vars.cookies), xbmc.LOGDEBUG)
 
@@ -236,7 +236,10 @@ def playGame():
     if currentvideo_url:
         item = xbmcgui.ListItem(path=currentvideo_url)
         xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=item) 
-
+        downloader = downloader.SimpleDownloader()
+        params = { "url": currentvideo_url, "download_path": "c:/", "Title": "my video" }
+        downloader.download("myvideo.mp4", params)
+        
 def chooseGameVideoMenu():
     currentvideo_id = vars.params.get("video_id")
     currentvideo_type  = vars.params.get("video_type")
