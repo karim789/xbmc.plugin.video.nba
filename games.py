@@ -236,9 +236,9 @@ def playGame():
     if currentvideo_url:
         item = xbmcgui.ListItem(path=currentvideo_url)
         xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=item) 
-        downloader = downloader.SimpleDownloader()
+        dw = downloader.SimpleDownloader()
         params = { "url": currentvideo_url, "download_path": "c:/", "Title": "my video" }
-        downloader.download("myvideo.mp4", params)
+        dw.download("myvideo.mp4", params)
         
 def chooseGameVideoMenu():
     currentvideo_id = vars.params.get("video_id")
