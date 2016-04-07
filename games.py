@@ -11,6 +11,8 @@ from utils import *
 from common import * 
 import vars
 
+import SimpleDownloader as downloader
+# downloader = downloader.SimpleDownloader()
 def getGameUrl(video_id, video_type, video_ishomefeed):
     log("cookies: %s %s" % (video_type, vars.cookies), xbmc.LOGDEBUG)
 
